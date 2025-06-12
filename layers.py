@@ -1,4 +1,5 @@
 import numpy as np
+import backprop as bp
 
 class Layer:
     def __init__(self, input_size, output_size):
@@ -12,5 +13,6 @@ class Layer:
         self.input = input
         return np.dot(self.weight, self.input) + self.bias
 
-    def prop_backward(self, output):
-        pass
+    def prop_backward(self, out_grad, learn_rate):
+        in_grad, self.weight, self.bias = bp.grad_descent(self.input, self.weight, self.bias, out_grad, learn_rate) 
+        return in_grad
