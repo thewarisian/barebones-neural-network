@@ -1,7 +1,7 @@
-# 🧠 neural-net-digits
+# 🧠 barebones-neural-network
 
-A barebones neural network library built from scratch in Python.  
-It trains a simple neural network to recognize handwritten digits using the standard MNIST dataset.
+A neural network library built from the ground up in Python.  
+Implemented in various basic example cases.
 
 ---
 
@@ -22,7 +22,6 @@ This project includes a concise, beginner-friendly document that explains the **
 - Minimal architecture — no frameworks
 - Matrix-based forward and backward propagation
 - Modular design with custom training logic
-- MNIST-compatible
 
 ---
 
