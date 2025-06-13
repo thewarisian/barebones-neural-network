@@ -2,7 +2,7 @@ import numpy as np
 import backprop as bp
 
 class Layer:
-    def __init__(self, input_size, output_size, activation=None, activation_prime=None):
+    def __init__(self, input_size, output_size, activation=None):
         self.input = None
         self.output_unactivated = None
         self.output = None
@@ -11,7 +11,6 @@ class Layer:
         self.bias = np.random.randn(output_size, 1)
 
         self.activation = activation
-        self.activation_prime = activation_prime
 
     def prop_forward(self, input):
         self.input = input
@@ -20,6 +19,7 @@ class Layer:
         return self.output
 
     def prop_backward(self, out_grad, learn_rate):
-        in_grad, self.weight, self.bias = bp.grad_descent(self.input, self.output_unactivated, self.weight, self.bias, 
-                                                          out_grad, learn_rate, self.activation, self.activation_prime) 
+        in_grad, self.weight, self.bias = bp.grad_descent(self.input, self.output_unactivated, 
+                                                          self.weight, self.bias, 
+                                                          out_grad, learn_rate, self.activation) 
         return in_grad
